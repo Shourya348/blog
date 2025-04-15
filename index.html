@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trump's Trade War: Tariffs & Global Impact</title>
+  <style>
+    :root {
+      --primary-color: #c1272d;
+      --secondary-color: #0056b3;
+      --accent-color: #f8f1e5;
+      --text-color: #333;
+      --light-gray: #f5f5f5;
+      --dark-gray: #555;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--light-gray);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/trump 6.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .author-date {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      color: var(--dark-gray);
+      font-style: italic;
+    }
+
+    .blog-content {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+    }
+
+    article {
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    article h2 {
+      color: var(--primary-color);
+      margin: 30px 0 20px;
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+    }
+
+    article h3 {
+      color: var(--secondary-color);
+      margin: 25px 0 15px;
+      font-size: 1.4rem;
+    }
+
+    article p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .image-container {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-container figcaption {
+      margin-top: 10px;
+      font-style: italic;
+      color: var(--dark-gray);
+    }
+
+    ul,
+    ol {
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .highlight-box {
+      background-color: var(--accent-color);
+      border-left: 5px solid var(--primary-color);
+      padding: 20px;
+      margin: 30px 0;
+    }
+
+    .highlight-box h3 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    /* Animated Cards Styles */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .card {
+      flex: 1 1 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body p {
+      margin-bottom: 0;
+    }
+
+    /* Stats Grid Animation */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .stat-item {
+      background-color: var(--light-gray);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s ease;
+      transform: scale(0.95);
+      opacity: 0;
+    }
+
+    .stat-item.visible {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .stat-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-item .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    .stat-item .stat-label {
+      font-size: 0.9rem;
+      color: var(--dark-gray);
+    }
+
+    aside {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      align-self: start;
+      position: sticky;
+      top: 20px;
+    }
+
+    aside h3 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+    }
+
+    .related-articles {
+      margin-bottom: 30px;
+    }
+
+    .related-article {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .related-article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .related-article a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .related-article a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    .newsletter-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .newsletter-form button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #a02025;
+    }
+
+    footer {
+      background-color: var(--dark-gray);
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+
+    .social-links {
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--primary-color);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .blog-content {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Trump's Trade War: Tariffs & Global Impact</h1>
+      <p>How protectionist policies reshaped international trade relations and what it means for the future of
+        globalization</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="author-date">
+      <span>By Shourya Jain</span>
+      <span>Published: 15 Apirl,2025</span>
+    </div>
+
+    <div class="blog-content">
+      <article>
+        <h2>Introduction</h2>
+        <p>A tariff is a duty (a tax) imposed by a national government, customs territory, or supranational union on
+          imports (or, exceptionally, exports) of goods. Besides being a source of revenue, import duties can also be a
+          form of regulation of foreign trade and policy that burden foreign products to encourage or safeguard domestic
+          industry
+
+          When Donald Trump became the U.S. President in 2017, slowly and gradually his Administration started reshaping
+          the American trade policy under the banner of "America First." The goal was to correct trade imbalances and
+          protect U.S. industries, The strategies implemented, incured aggressive tariffs which became tension
+          for global economy.</p>
+
+        <div class="image-container">
+          <img src="images/trump.png" alt="">
+          <figcaption>Global trade relies heavily on complex shipping networks that were disrupted by tariff policies
+          </figcaption>
+        </div>
+
+        <p>When Donald Trump assumed the U.S. presidency in 2017, his administration gradually reshaped American trade
+          policy under the "America First" banner. This initiative aimed to rectify trade imbalances and shield U.S.
+          industries from foreign competition. The implementation of aggressive tariff policies created significant
+          tensions in the global economy.</p>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">$360B+</div>
+            <div class="stat-label">Chinese goods tariffed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">25%</div>
+            <div class="stat-label">Average tariff on steel imports</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">$1,000</div>
+            <div class="stat-label">Annual cost per US household</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50%</div>
+            <div class="stat-label">Drop in US soybean exports to China</div>
+          </div>
+        </div>
+
+        <h2>The Strategy Behind Trump's Trade Wars</h2>
+        <p>The Trump administration's trade war stemmed from the belief that previous U.S. trade agreements -
+          particularly those with China, Mexico, Canada, and the European Union - were fundamentally unfair. In
+          response, the government imposed tariffs on steel, aluminum, washing machines, solar panels, and thousands of
+          Chinese goods to counteract perceived unfair trade practices.</p>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-header">Reduce Trade Deficits</div>
+            <div class="card-body">
+              <p>Bring down the gap between imports and exports to strengthen the domestic economy and reduce foreign
+                dependence.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Revive U.S. Manufacturing</div>
+            <div class="card-body">
+              <p>Protect and create jobs in key industries by making imported goods more expensive than domestic
+                products.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Fair Trade Deals</div>
+            <div class="card-body">
+              <p>Renegotiate existing trade agreements to secure better terms for American workers and businesses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/trump 5.jpg" alt="President Trump signing documents">
+          <figcaption>President Trump signing trade-related executive orders in the Oval Office</figcaption>
+        </div>
+
+        <h3>Major Tariff Actions Timeline</h3>
+        <ul>
+          <li><strong>January 2018:</strong> 30% tariffs on solar panels and washing machines</li>
+          <li><strong>March 2018:</strong> 25% tariffs on steel and 10% on aluminum imports</li>
+          <li><strong>July 2018:</strong> First round of tariffs on $34 billion of Chinese goods</li>
+          <li><strong>September 2018:</strong> Tariffs expanded to $200 billion of Chinese imports</li>
+          <li><strong>June 2019:</strong> Mexico tariff threat over immigration issues</li>
+        </ul>
+
+        <h2>Economic Impacts on the United States</h2>
+        <p>The global reaction to this was very quick, Targeted countries responded with changes in their own tariffs on
+          American products, instead of making it as a global political issue.
+          This caused the U.S economy in many ways:-
+        </p>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-header">Higher Costs for Businesses and Consumers
+
+            </div>
+            <div class="card-body">
+              <p>As tariff increased the prices of aluminium solar panels etc increased which became the reason of
+                increased prices for both business and consumers.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Agricultural Sector Struggles
+            </div>
+            <div class="card-body">
+              <p>Farmers faced devastating losses as China slashed purchases of U.S. agricultural products, requiring
+                billions in government aid.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"> Impact on Household Budgets
+            </div>
+            <div class="card-body">
+              <p>The rates of necessary products increased so the average household budget increased. In U.S an average
+                household budget is approximately $800 which got increased to $1000 per year.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/trump 3.jpg" alt="trump">
+          <figcaption>US soybean farmers were among the hardest hit by Chinese retaliatory tariffs</figcaption>
+        </div>
+
+        <h2>Global Repercussions</h2>
+        <p>The ripple effects of Trump's tariff policies extended beyond U.S. borders, significantly impacting global
+          markets:</p>
+
+        <div class="highlight-box">
+          <h3>New Trade Alliances Formed</h3>
+          <ul>
+            <li><strong>RCEP:</strong> World's largest trade bloc covering 30% of global GDP</li>
+            <li><strong>EU-Japan Trade Agreement:</strong> Created to counter protectionist trends</li>
+            <li><strong>African Continental Free Trade Area:</strong> Accelerated regional integration</li>
+          </ul>
+        </div>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-header">Supply Chain Chaos</div>
+            <div class="card-body">
+              <p>Multinational company faced increased costs as tariff made the supply routes more expensive and less
+                reliable
+                .</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Shifts in Global Trade Alliances
+            </div>
+            <div class="card-body">
+              <p>Due to these tariffs global economies had made new trade partnership such as Regional Comprehensive
+                Economical Partnership(RCEP) which excluded U.S.A from it.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Emergence of Economic Nationalism
+              <p>Other countries are trying to adopt the similar policy changes, either inspired or pressurized by U.S
+                economy to resha the global market..</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/trump 4.png" alt="trade">
+          <figcaption>Manufacturing shifted to countries like Vietnam as companies diversified supply chains
+          </figcaption>
+        </div>
+
+        <h2>Long-Term Implications for Global Trade Dynamics</h2>
+        <p>The state what has left long lasting mark on the global market fluctuations and functionality
+        </p>
+
+        <div class="card-container">
+          <div class="card">
+            <div class="card-header"> Supply Chain Diversification</div>
+            <div class="card-body">
+              <p>Business started following 'china plus one starergy' reducing the dependency of china and by increasing
+                alternative options in countries like Mexico, India, Vietnam.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"> Strained U.S-China relation
+            </div>
+            <div class="card-body">
+              <p>The trade war made the economic competition between the U.S. and China even stronger. Even after Trump
+                left office, most tariffs on Chinese products stayed in place
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Pressure on Global Trade Institutions
+            </div>
+            <div class="card-body">
+              <p>There is a high pressure on the World Trade Organization (WTO) who is having hard time to solve this
+                fight between 2 big economies of the world and trying to fix this issue as soon as possible.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/trump 2.jpg" alt="trade war">
+          <figcaption>Semiconductors became a key battleground in the tech war between US and China</figcaption>
+        </div>
+
+        <h2>Looking Ahead: The Future of Global Trade</h2>
+        <p>The trade conflicts marked a pivotal shift in international commerce, signaling the end of the relatively
+          open global trading system that characterized the early 21st century. The emerging paradigm appears to
+          emphasize:</p>
+
+        <div class="highlight-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>Tariffs were used as both economic tools and political statements</li>
+            <li>The trade war accelerated deglobalization trends already underway</li>
+            <li>Supply chains became more regional and resilient</li>
+            <li>Technological competition intensified between US and China</li>
+            <li>The WTO's role in trade disputes became less relevant</li>
+          </ul>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>Trump's trade wars marked a significant shift in international trade and went beyond simple disputes over
+          tariffs. They exposed the flaws in how countries depend on each other for products, spurred more countries to
+          focus on defending their own economy, and developed a new, more guarded and divided trade system. The impact
+          of his tariffs on international trade, politics, and future decisions is evident, whether of whether you
+          believe they improved or worsened the situation. For many years to come, the globe will have to cope with the
+          changes these policies brought about.</p>
+      </article>
+
+      <aside>
+        <div class="related-articles">
+          <h3>Related Articles</h3>
+          <div class="related-article">
+            <a
+              href="https://www.spglobal.com/mobility/en/research-analysis/semiconductor-supply-chain-disruption-us-china-trade-conflict.html#:~:text=The%20United%20States%20is%20working%20to%20restrict%20mainland,%E2%80%94all%20while%20bolstering%20its%20own%20domestic%20chip%20industry.">The
+              US-China Tech War: Semiconductor Sanctions Explained</a>
+          </div>
+          <div class="related-article">
+            <a
+              href="https://www.thomsonreuters.com/en-us/posts/international-trade-and-supply-chain/rcep-asia-pacific-advantages/">How
+              the RCEP is Reshaping Asian Trade Without the US</a>
+          </div>
+          <div class="related-article">
+            <a
+              href="https://news.darden.virginia.edu/2025/04/04/the-trump-administrations-trade-war-heats-up-what-comes-next/">The
+              Trump Administration’s Trade War Heats Up: What Comes Next?</a>
+          </div>
+          <div class="related-article">
+            <a href="https://www.weforum.org/stories/2023/02/friendshoring-global-trade-buzzwords/">The Rise of
+              Friend-shoring in Global Supply Chains</a>
+          </div>
+          <div class="related-article">
+            <a
+              href="https://www.globalpolicyjournal.com/articles/world-economy-trade-and-finance/economic-nationalism-theory-history-and-prospects">Economic
+              Nationalism: A Global Trend Analysis</a>
+          </div>
+        </div>
+
+        <div class="newsletter">
+          <h3>Stay Updated</h3>
+          <p>Subscribe to our newsletter for weekly analysis on global trade policies</p>
+          <form class="newsletter-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="quick-facts">
+          <h3>Quick Facts</h3>
+          <ul>
+            <li>Peak tariffs reached 25% on $550B of Chinese goods</li>
+            <li>US trade deficit with China hit record $419B in 2018</li>
+            <li>China retaliated with tariffs on $185B of US goods</li>
+            <li>Phase One deal signed in January 2020</li>
+            <li>Most tariffs remain in place as of 2023</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Shourya Jain. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>Disclaimer: The views expressed in this article are those of the author alone.</p>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+  <script>
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for subscribing to our newsletter!');
+        newsletterForm.reset();
+      });
+    }
+
+    // Add current year to footer
+    document.addEventListener('DOMContentLoaded', () => {
+      const yearSpan = document.querySelector('footer p:first-child');
+      if (yearSpan) {
+        const currentYear = new Date().getFullYear();
+        yearSpan.textContent = yearSpan.textContent.replace('2023', currentYear);
+      }
+    });
+
+    // Animated cards and stats functionality
+    const animateOnScroll = () => {
+      const cards = document.querySelectorAll('.card');
+      const stats = document.querySelectorAll('.stat-item');
+
+      cards.forEach(card => {
+        const cardPosition = card.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (cardPosition < screenPosition) {
+          card.classList.add('visible');
+        }
+      });
+
+      stats.forEach(stat => {
+        const statPosition = stat.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (statPosition < screenPosition) {
+          stat.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
+
+  <!-- Font Awesome for social icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
